@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="EN" xml:lang = "EN" dir="ltr">
+<head>
+<meta content=""/>
+<title>Employee Payroll Calculator</title>
+<style type="text/css">
+<!--
+h1 {color: green; text-align:center; background-color:white; border-color: green; border-style: solid}
+p {font-family:Arial, Helvetica, sans-serif; color: #FF9933; text-align: center}
+body {background-color: #99FF99}
+table {border-color: green; background-color: white; margin-left: auto; margin-right: auto; border-style: solid}
+td {border: 1px solid #99FF99;}
+-->
+</style>
+<script type="text/javascript">
+<!--
+function calculate() {
+var name=document.getElementById("name").value;
+var hours=document.getElementById("hours").value;
+var wage=document.getElementById("wage").value;
+	if (hours > 40) {
+		var pay = (wage * 40) + (1.5 * wage) * (hours - 40);
+		var message="Overtime pay was included."
+	}
+	else {
+		var pay = (wage * hours);
+		var message=""
+	}
+var newP=document.createElement("p");
+var newT=document.createTextNode("The pay this week for "+name+" is: $"+pay+". "+message);
+newP.appendChild(newT);
+var theBody=document.getElementsByTagName("body")[0];
+theBody.appendChild(newP);
+alert("The pay this week for "+name+" is: $"+pay+". "+message);
+}
+//-->
+</script>
+</head>
+<body>
+<h1><img src="money.jpg" alt="money" />               Employee Payroll Calculator               <img src="money.jpg" alt="money" /></h1>
+<hr />
+<p>Please enter the following information to perform this calculation:<br /></p>
+<p><object><form action="">
+<table>
+<tr>
+<td>Employee Name:<br /><input type="text" id="name" /></td>
+<td>Hourly Wage:<br /><input type="text" id="wage" /></td>
+<td>Number of Hours Worked In the Week:<br /><input type="text" id="hours" /></td>
+</tr>
+</table>
+<p>Note: Any hours over 40 are considered overtime, and are calculated as time and a half.</p>
+<p><input type="button" value="Calculate" onclick="calculate()" /><input type="reset" value="Reset" /></p>
+</form></object></p>
+</body>
+</html>
